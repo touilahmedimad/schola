@@ -13,8 +13,7 @@ return [
     'id' => 'Id',
     'name' => 'Name',
     'control' => 'Control',
-    'modify' => 'Modify',
+    'edit' => 'Edit',
     'delete' => 'Delete',
-
-
+    'warning_delete' => 'Are you sure you want to delete',
 ];

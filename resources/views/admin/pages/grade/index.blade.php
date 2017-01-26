@@ -22,8 +22,25 @@
             <th scope="row">{{ $category->id }}</th>
             <td> {{ $category->name }}</td>
             <td>
-                <a href="{{ url('/admin/grade/update/'. $category->id)  }}"><button class="btn btn-default"> {{ trans('messages.modify') }}</button></a>
-                <a href="{{ url('/admin/grade/destroy/'. $category->id)  }}"><button class="btn btn-danger"> {{ trans('messages.delete') }}</button></a>
+                <a href="{{ url('/admin/grade/update/'. $category->id)  }}"><button class="btn btn-default"> {{ trans('messages.edit') }}</button></a>
+                <button class="btn btn-danger" data-toggle="modal" data-target="#myModal{{ $category->id }}"> {{ trans('messages.delete') }}</button>
+                <div class="modal fade" id="myModal{{ $category->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title text-warning" id="myModalLabel">Warning</h4>
+                            </div>
+                            <div class="modal-body">
+                                {{ trans('messages.warning_delete') }} : {{ $category->name }}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <a href="{{ url('/admin/grade/destroy/'. $category->id)  }}"><button class="btn btn-danger"> {{ trans('messages.delete') }}</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </td>
         </tr>
         @endforeach
