@@ -22,8 +22,9 @@ class GradeController extends Controller
      */
     public function index()
     {
+        $categories = Category::all();
 
-        return view('admin.pages.grade.index');
+        return view('admin.pages.grade.index')->with('categories', $categories);
     }
 
     /**

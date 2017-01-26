@@ -7,5 +7,14 @@
  */
 return [
     'grade_create' => 'Create A grade',
+    'grade_btn_create' => 'Add Grade',
     'grade_success' => 'Grade successfully added',
+    'cancel' => 'Cancel',
+    'id' => 'Id',
+    'name' => 'Name',
+    'control' => 'Control',
+    'modify' => 'Modify',
+    'delete' => 'Delete',
+
+
 ];

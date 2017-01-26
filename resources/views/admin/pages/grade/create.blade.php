@@ -1,6 +1,7 @@
 @extends('admin.layout.auth')
 
 @section('content')
+    <a href="{{ url('admin/grade') }}"> <button class="btn btn-default pull-right"> {{ trans('messages.cancel') }}</button></a>
     <h3>{{ trans('messages.grade_create') }} </h3>
     <form class="form-horizontal" method="POST" action="{{ url('/admin/grade') }}">
         {{ csrf_field() }}
@@ -13,7 +14,6 @@
                         <strong> {{ $errors->first('name') }}</strong>
                     </span>
                 @endif
-
             </div>
         </div>
         <button class="btn btn-success pull-right" type="submit" >Submit</button>
