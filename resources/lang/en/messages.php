@@ -16,5 +16,6 @@ return [
     'control' => 'Control',
     'edit' => 'Edit',
     'delete' => 'Delete',
+    'warning' => 'Warning',
     'warning_delete' => 'Are you sure you want to delete',
 ];
