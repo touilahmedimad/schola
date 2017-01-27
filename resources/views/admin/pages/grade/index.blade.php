@@ -4,6 +4,8 @@
 <h2>Grade Page </h2>
 <a href="{{ url('/admin/grade/create') }}"> <button class="btn btn-success pull-right">{{ trans('messages.grade_btn_create') }}</button></a>
     @if(session('status'))
+        <br/>
+        <br/>
         <div class="alert alert-success">
             {{ session('status') }}
         </div>
@@ -35,8 +37,13 @@
                                 {{ trans('messages.warning_delete') }} : {{ $category->name }}
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <a href="{{ url('/admin/grade/destroy/'. $category->id)  }}"><button class="btn btn-danger"> {{ trans('messages.delete') }}</button></a>
+                                <form action="{{ url('/admin/grade',$category->id)}}" method="post">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="_method" value="delete">
+                                    <button class="btn btn-danger" type="submit"> {{ trans('messages.delete') }}</button>
+                                </form>
+
                             </div>
                         </div>
                     </div>

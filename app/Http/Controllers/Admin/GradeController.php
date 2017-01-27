@@ -23,7 +23,6 @@ class GradeController extends Controller
     public function index()
     {
         $categories = Category::all();
-
         return view('admin.pages.grade.index')->with('categories', $categories);
     }
 
@@ -95,6 +94,8 @@ class GradeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+        return redirect('admin/grade')->with('status', trans('messages.grade_delete'));
     }
 }

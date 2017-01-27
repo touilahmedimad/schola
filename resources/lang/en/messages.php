@@ -9,6 +9,7 @@ return [
     'grade_create' => 'Create A grade',
     'grade_btn_create' => 'Add Grade',
     'grade_success' => 'Grade successfully added',
+    'grade_delete' => 'Grade deleted successfully',
     'cancel' => 'Cancel',
     'id' => 'Id',
     'name' => 'Name',
