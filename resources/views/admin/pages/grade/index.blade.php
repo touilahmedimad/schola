@@ -24,7 +24,7 @@
             <th scope="row">{{ $category->id }}</th>
             <td> {{ $category->name }}</td>
             <td>
-                <a href="{{ url('/admin/grade/update/'. $category->id)  }}"><button class="btn btn-default"> {{ trans('messages.edit') }}</button></a>
+                <a href="{{ url('/admin/grade/'. $category->id.'/edit')  }}"><button class="btn btn-default"> {{ trans('messages.edit') }}</button></a>
                 <button class="btn btn-danger" data-toggle="modal" data-target="#myModal{{ $category->id }}"> {{ trans('messages.delete') }}</button>
                 <div class="modal fade" id="myModal{{ $category->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">

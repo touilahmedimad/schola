@@ -86,8 +86,8 @@
                 <i class="fa fa-times"></i>
             </span>
         </span>
-                    <a href="#" class="list-group-item">
-                        <i class="fa fa-comment-o"></i> Create User
+                    <a href="{{url('/admin/grade')}}" class="list-group-item">
+                        <i></i> Grade
                     </a>
                     <a href="#" class="list-group-item">
                         <i class="fa fa-search"></i> Lorem ipsum

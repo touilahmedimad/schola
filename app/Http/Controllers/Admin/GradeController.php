@@ -71,8 +71,10 @@ class GradeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('admin.pages.grade.edit')->with('category', $category);
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -83,7 +85,11 @@ class GradeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required | unique:categories',
+        ]);
+        Category::where('id',$id)->update(['name'=> $request->input('name')]);
+        return redirect('admin/grade')->with('status', trans('messages.grade_update'));
     }
 
     /**
