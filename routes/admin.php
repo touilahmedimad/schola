@@ -11,5 +11,6 @@ Route::get('/home', function () {
 })->name('home');
 
 Route::resource('/grade', 'Admin\GradeController');
+Route::resource('/teacher', 'Admin\TeacherController');
 
 

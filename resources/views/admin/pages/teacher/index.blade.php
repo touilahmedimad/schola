@@ -1,7 +1,9 @@
+
 @extends('admin.layout.auth')
 
 @section('content')
-<a href="{{ url('/admin/grade/create') }}"> <button class="btn btn-success pull-right">{{ trans('messages.grade_btn_create') }}</button></a>
+<h2>{{ trans('messages.teacher_page') }} </h2>
+<a href="{{ url('/admin/teacher/create') }}"> <button class="btn btn-success pull-right">{{ trans('messages.teacher_btn_create') }}</button></a>
     @if(session('status'))
         <br/>
         <br/>
@@ -12,20 +14,19 @@
     <table class="table table-condensed">
         <thead>
         <tr>
-            <th>{{ trans('messages.id') }}</th>
             <th>{{ trans('messages.name') }}</th>
+            <th>{{ trans('messages.email') }}</th>
             <th>{{ trans('messages.control') }}</th>
         </tr>
         </thead>
         <tbody>
-        @foreach($categories as $category )
+        @foreach($teachers as $teacher )
         <tr>
-            <th scope="row">{{ $category->id }}</th>
-            <td> {{ $category->name }}</td>
+            <td> {{ $teacher->name }}</td>
+            <td> {{ $teacher->email }}</td>
             <td>
-                <a href="{{ url('/admin/grade/'. $category->id.'/edit')  }}"><button class="btn btn-default"> {{ trans('messages.edit') }}</button></a>
-                <button class="btn btn-danger" data-toggle="modal" data-target="#myModal{{ $category->id }}"> {{ trans('messages.delete') }}</button>
-                <div class="modal fade" id="myModal{{ $category->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <button class="btn btn-danger" data-toggle="modal" data-target="#myModal{{ $teacher->id }}"> {{ trans('messages.delete') }}</button>
+                <div class="modal fade" id="myModal{{ $teacher->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -33,10 +34,10 @@
                                 <h4 class="modal-title text-warning" id="myModalLabel">{{ trans('messages.warning') }}</h4>
                             </div>
                             <div class="modal-body">
-                                {{ trans('messages.warning_delete') }} : {{ $category->name }}
+                                {{ trans('messages.warning_delete') }} : {{ $teacher->name }}
                             </div>
                             <div class="modal-footer">
-                                <form action="{{ url('/admin/grade',$category->id)}}" method="post">
+                                <form action="{{ url('/admin/teacher',$teacher->id)}}" method="post">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                     {{ csrf_field() }}
                                     <input type="hidden" name="_method" value="delete">
@@ -51,6 +52,11 @@
         </tr>
         @endforeach
     </table>
+
+<div style="text-align: center">
+    {{ $teachers->links() }}
+</div>
+
 
 
 

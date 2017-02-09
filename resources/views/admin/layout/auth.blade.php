@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -89,8 +90,8 @@
                     <a href="{{url('/admin/grade')}}" class="list-group-item">
                         <i></i> Grade
                     </a>
-                    <a href="#" class="list-group-item">
-                        <i class="fa fa-search"></i> Lorem ipsum
+                    <a href="{{url('/admin/teacher')}}" class="list-group-item">
+                        </i> Teachers
                     </a>
                     <a href="#" class="list-group-item">
                         <i class="fa fa-user"></i> Lorem ipsum
@@ -119,5 +120,6 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+
 </body>
 </html>
